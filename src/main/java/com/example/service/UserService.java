@@ -23,13 +23,17 @@ public class UserService extends ServiceImpl<UserMapper, User> {
 
     @Resource
     private RoleService roleService;
-
+    //登录
     public User login(User user) {
+        //课下学习lanbda表达式
+        //Wrappers就是一个查询条件,类似example
+        //sql = select * from admin where xxx=xx and pwd=pwd
         LambdaQueryWrapper<User> queryWrapper = Wrappers.<User>lambdaQuery().eq(User::getUsername, user.getUsername()).eq(User::getPassword, user.getPassword());
         User one = getOne(queryWrapper);
         if (one == null) {
             throw new CustomException("-1", "账号或密码错误");
         }
+        //登录成功后,给予一个权限
         setPermission(one);
         return one;
     }

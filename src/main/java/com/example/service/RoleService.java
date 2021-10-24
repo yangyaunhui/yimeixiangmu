@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+//这是业务层 接口省略了   cglib
+//单表的业务层只需要依赖一个持久层即可,代码想当简洁
 @Service
 public class RoleService extends ServiceImpl<RoleMapper, Role> {
 

@@ -21,7 +21,7 @@ public class Role extends Model<Role> {
     private String name;
 
     private String description;
-
+    //该注解是把数据库中的数组变成json
     @TableField(typeHandler = JacksonTypeHandler.class)
     private List<Permission> permission;
 
